@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Showing Schools in a city</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibmFuYWhhbXphdCIsImEiOiJjamVlem95bzIxYWpkMndvZDBmN2prZWF3In0.CDHfi4Iqc6yHuI0UK2ufqw';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    zoom: 5,
+    center: [6.51, 7.52]
+});
+
+map.on('load', function() {
+    map.loadImage('https://i.imgur.com/Cna1jK4.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('icon', image);
+        map.addLayer({
+            "id": "points",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133002",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "fixme": "many bad keys",
+                          "height": "236.399994",
+                          "house_number": "0.0",
+                          "id": "POI000079",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A401ecff7-f86f-4501-a765-1e01adc5408d%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A401ecff7-f86f-4501-a765-1e01adc5408d%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "All Saints Ekulu Nursery & Primary School",
+                          "operator:type": "public",
+                          "street_name": "Works Road"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.484622,
+                            6.45407
+                          ]
+                        },
+                        "id": "node/2455133002"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133019",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "contact:email": "coccischools@yahoo.com",
+                          "fixme": "many bad keys",
+                          "height": "226.5",
+                          "house_number": "0.0",
+                          "id": "POI000051",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A3da400c5-d2bc-478a-b502-530da24518bb%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A3da400c5-d2bc-478a-b502-530da24518bb%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Cocci International Secondary School",
+                          "operator:type": "private",
+                          "street_name": "Amesi, Abakpa"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.51449,
+                            6.483071
+                          ]
+                        },
+                        "id": "node/2455133019"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133058",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "fixme": "many bad keys",
+                          "height": "191.0",
+                          "house_number": "5.0",
+                          "id": "POI000004",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A462c5566-00a7-4b76-9f7f-3014e05f0811%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A462c5566-00a7-4b76-9f7f-3014e05f0811%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Fountain Comprehensive College",
+                          "operator:type": "private",
+                          "street_name": "Ichida"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.506913,
+                            6.476999
+                          ]
+                        },
+                        "id": "node/2455133058"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133062",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "fixme": "many bad keys",
+                          "height": "211.100006",
+                          "house_number": "0.0",
+                          "id": "POI000047",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Afa58eea1-5f12-432a-90d0-3464f44505bb%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Afa58eea1-5f12-432a-90d0-3464f44505bb%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Goddip Nursery, Primary & Secondary School",
+                          "operator:type": "Others",
+                          "street_name": "Ndorommiri"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.511708,
+                            6.479255
+                          ]
+                        },
+                        "id": "node/2455133062"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133079",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "fixme": "many bad keys",
+                          "height": "211.899994",
+                          "house_number": "49.0",
+                          "id": "POI000187",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A91d8e406-b155-45d5-8686-a1c8340237f2%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A91d8e406-b155-45d5-8686-a1c8340237f2%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Good Hope Stars Schools",
+                          "operator:type": "private",
+                          "street_name": "Bishop Onyeabor"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.495831,
+                            6.465915
+                          ]
+                        },
+                        "id": "node/2455133079"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133162",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "fixme": "many bad keys",
+                          "height": "218.0",
+                          "house_number": "8.0",
+                          "id": "POI000085",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A48834a61-7d21-4dd4-8388-86b5e2828ae4%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A48834a61-7d21-4dd4-8388-86b5e2828ae4%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Holy Child Nursery & Primary",
+                          "operator:type": "private",
+                          "street_name": "Adija Trans Ekulu"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.50914,
+                            6.481227
+                          ]
+                        },
+                        "id": "node/2455133162"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133191",
+                          "access": "public",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "fixme": "many bad keys",
+                          "height": "207.600",
+                          "house_number": "0.0",
+                          "id": "POI000076",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A45da8405-d6b9-4df2-b391-ed611e31c6e3%5D%2FPOI_Picture1",
+                          "location": "5.0",
+                          "name": "Housing Estate Primary School",
+                          "street_name": "Housing Estate"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.517894,
+                            6.481174
+                          ]
+                        },
+                        "id": "node/2455133191"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133257",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "contact:phone": "8103825406",
+                          "fixme": "many bad keys",
+                          "height": "238.699997",
+                          "house_number": "5.0",
+                          "id": "POI000021",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ae29446a5-5505-41a1-8640-336bad57aa45%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ae29446a5-5505-41a1-8640-336bad57aa45%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Magnet Nursery & Primary School",
+                          "operator:type": "private",
+                          "street_name": "Manuwa Street"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.499558,
+                            6.461381
+                          ]
+                        },
+                        "id": "node/2455133257"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133393",
+                          "amenity": "school",
+                          "category": "Educational Institution",
+                          "fixme": "many bad keys",
+                          "height": "216.300003",
+                          "house_number": "3.0",
+                          "id": "POI000009",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A32958ef6-cd77-448f-8ea4-bdd61adedc16%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A32958ef6-cd77-448f-8ea4-bdd61adedc16%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Prima Schools",
+                          "operator:type": "private",
+                          "street_name": "Nike Drive"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.504187,
+                            6.46983
+                          ]
+                        },
+                        "id": "node/2455133393"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133402",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "fixme": "many bad keys",
+                          "height": "200.399994",
+                          "house_number": "0.0",
+                          "id": "POI000034",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ae6ef03f4-750a-4825-bca7-edd12193b7f4%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ae6ef03f4-750a-4825-bca7-edd12193b7f4%5D%2FPOI_Picture2",
+                          "location": "3.0",
+                          "name": "River Side Nursery & Primary School",
+                          "operator:type": "private",
+                          "street_name": "Ogbete Crescent"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.520734,
+                            6.480415
+                          ]
+                        },
+                        "id": "node/2455133402"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133407",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "fixme": "many bad keys",
+                          "height": "194.399994",
+                          "house_number": "0.0",
+                          "id": "POI000039",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A9bdd3d65-da19-4534-a131-5b833b38d506%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A9bdd3d65-da19-4534-a131-5b833b38d506%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "St Leo The Great Nursery & Primary School",
+                          "operator:type": "ngo",
+                          "street_name": "Federal Housing"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.507836,
+                            6.480021
+                          ]
+                        },
+                        "id": "node/2455133407"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133415",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "fixme": "many bad keys",
+                          "height": "221.0",
+                          "house_number": "0.0",
+                          "id": "POI000072",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A3ca67724-b392-43b5-85c8-733b964a00c5%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A3ca67724-b392-43b5-85c8-733b964a00c5%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Sunshine Crèche",
+                          "operator:type": "private",
+                          "street_name": "Club Road"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.488415,
+                            6.447395
+                          ]
+                        },
+                        "id": "node/2455133415"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133441",
+                          "amenity": "school",
+                          "category": "Educational Institution",
+                          "fixme": "many bad keys",
+                          "height": "227.899994",
+                          "house_number": "0.0",
+                          "id": "POI000294",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ad8462692-6a2c-4df0-89c8-b3b077392558%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ad8462692-6a2c-4df0-89c8-b3b077392558%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Trans Ekulu Girls Secondary School",
+                          "operator:type": "public",
+                          "street_name": "Ezechime"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.501828,
+                            6.476649
+                          ]
+                        },
+                        "id": "node/2455133441"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133442",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "fixme": "many bad keys",
+                          "height": "215.0",
+                          "house_number": "0.0",
+                          "id": "POI000293",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Af99135ae-6448-4c42-9194-31455ccdbabb%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Af99135ae-6448-4c42-9194-31455ccdbabb%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Trans Ekulu Primary School",
+                          "operator:type": "public",
+                          "street_name": "Road 12, Trans Ekulu"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.495381,
+                            6.47625
+                          ]
+                        },
+                        "id": "node/2455133442"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133485",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "fixme": "many bad keys",
+                          "height": "199.0",
+                          "house_number": "25.0",
+                          "id": "POI000486",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A96ecc298-26d5-4338-a5a5-3454df977b85%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A96ecc298-26d5-4338-a5a5-3454df977b85%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Winsophia Child Friendly",
+                          "operator:type": "private",
+                          "street_name": "Agulu Lake"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.52245,
+                            6.482994
+                          ]
+                        },
+                        "id": "node/2455133485"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133490",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.496267",
+                          "HOUSE_NUMB": "2.0",
+                          "LOCATION_A": "5.0",
+                          "NORTHING": "6.413201",
+                          "POI_ID": "POI000133",
+                          "POI_NAME": "Greater Tomorrow International School (Nur & Pri)",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A444b1914-1d8b-438f-8421-d56ac9103f65%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A444b1914-1d8b-438f-8421-d56ac9103f65%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Private",
+                          "STREET_NAM": "Igbariam",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "213.0",
+                          "fixme": "many bad keys",
+                          "house_number": "2.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A444b1914-1d8b-438f-8421-d56ac9103f65%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A444b1914-1d8b-438f-8421-d56ac9103f65%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Greater Tomorrow International School (Nur & Pri)",
+                          "old_id": "POI000133",
+                          "operator:type": "private",
+                          "street_name": "Igbariam"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.496267,
+                            6.413201
+                          ]
+                        },
+                        "id": "node/2455133490"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133493",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.502434",
+                          "HOUSE_NUMB": "5.0",
+                          "LOCATION_A": "5.0",
+                          "NORTHING": "6.413662",
+                          "POI_ID": "POI000152",
+                          "POI_NAME": "May Blossom High School",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ac665261a-f9a0-4913-a2c8-22c534020d21%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ac665261a-f9a0-4913-a2c8-22c534020d21%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Private",
+                          "STREET_NAM": "Patez",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "205.899994",
+                          "fixme": "many bad keys",
+                          "house_number": "5.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ac665261a-f9a0-4913-a2c8-22c534020d21%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ac665261a-f9a0-4913-a2c8-22c534020d21%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "May Blossom High School",
+                          "old_id": "POI000152",
+                          "operator:type": "private",
+                          "street_name": "Patez"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.502434,
+                            6.413662
+                          ]
+                        },
+                        "id": "node/2455133493"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133494",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.493559",
+                          "HOUSE_NUMB": "6.0",
+                          "LOCATION_A": "4.0",
+                          "NORTHING": "6.413759",
+                          "POI_ID": "POI000128",
+                          "POI_NAME": "Anndy Model School",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A5164798e-e5b4-41f4-9a08-6a1e2615f9a3%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A5164798e-e5b4-41f4-9a08-6a1e2615f9a3%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Private",
+                          "STREET_NAM": "Egbo Nnaji",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "221.5",
+                          "fixme": "many bad keys",
+                          "house_number": "6.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A5164798e-e5b4-41f4-9a08-6a1e2615f9a3%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A5164798e-e5b4-41f4-9a08-6a1e2615f9a3%5D%2FPOI_Picture2",
+                          "location": "4.0",
+                          "name": "Anndy Model School",
+                          "old_id": "POI000128",
+                          "operator:type": "private",
+                          "street_name": "Egbo Nnaji"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.493559,
+                            6.413759
+                          ]
+                        },
+                        "id": "node/2455133494"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133513",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.491049",
+                          "HOUSE_NUMB": "105.0",
+                          "LOCATION_A": "4.0",
+                          "NORTHING": "6.417746",
+                          "POI_ID": "POI000188",
+                          "POI_NAME": "Madonna Daycare Center",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A5db05823-e549-4ba6-bd62-103cd7d35220%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A5db05823-e549-4ba6-bd62-103cd7d35220%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Private",
+                          "STREET_NAM": "Agbani Road",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "244.600006",
+                          "fixme": "many bad keys",
+                          "house_number": "105.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A5db05823-e549-4ba6-bd62-103cd7d35220%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A5db05823-e549-4ba6-bd62-103cd7d35220%5D%2FPOI_Picture2",
+                          "location": "4.0",
+                          "name": "Madonna Daycare Center",
+                          "old_id": "POI000188",
+                          "operator:type": "private",
+                          "street_name": "Agbani Road"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.491049,
+                            6.417746
+                          ]
+                        },
+                        "id": "node/2455133513"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133523",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.492346",
+                          "HOUSE_NUMB": "0.0",
+                          "LOCATION_A": "5.0",
+                          "NORTHING": "6.419481",
+                          "POI_ID": "POI000277",
+                          "POI_NAME": "Happy Time Crèche, Nursery & Primary School",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ad86edf3b-455c-484c-aaa8-80e75349f8d1%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ad86edf3b-455c-484c-aaa8-80e75349f8d1%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Private",
+                          "STREET_NAM": "Accra Street",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "230.600006",
+                          "fixme": "many bad keys",
+                          "house_number": "0.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ad86edf3b-455c-484c-aaa8-80e75349f8d1%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ad86edf3b-455c-484c-aaa8-80e75349f8d1%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Happy Time Crèche, Nursery & Primary School",
+                          "old_id": "POI000277",
+                          "operator:type": "private",
+                          "street_name": "Accra Street"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.492346,
+                            6.419481
+                          ]
+                        },
+                        "id": "node/2455133523"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133527",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.492255",
+                          "HOUSE_NUMB": "73.0",
+                          "LOCATION_A": "5.0",
+                          "NORTHING": "6.421559",
+                          "POI_ID": "POI000245",
+                          "POI_NAME": "Baptist High School",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A8c414267-c5f0-4e04-a1eb-ae4f6a647f17%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A8c414267-c5f0-4e04-a1eb-ae4f6a647f17%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Private",
+                          "STREET_NAM": "Robinson Street",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "238.300003",
+                          "fixme": "many bad keys",
+                          "house_number": "73.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A8c414267-c5f0-4e04-a1eb-ae4f6a647f17%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A8c414267-c5f0-4e04-a1eb-ae4f6a647f17%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Baptist High School",
+                          "old_id": "POI000245",
+                          "operator:type": "private",
+                          "street_name": "Robinson Street"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.492255,
+                            6.421559
+                          ]
+                        },
+                        "id": "node/2455133527"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133530",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.489037",
+                          "HOUSE_NUMB": "0.0",
+                          "LOCATION_A": "3.0",
+                          "NORTHING": "6.421991",
+                          "POI_ID": "POI000503",
+                          "POI_NAME": "Sacred Heart Primary & Secondary School",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Aaccf278b-b516-4bf2-a7b2-213f11222829%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Aaccf278b-b516-4bf2-a7b2-213f11222829%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Private",
+                          "STREET_NAM": "Bade Wright Street",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "230.399994",
+                          "fixme": "many bad keys",
+                          "health_facility:type": "230.399994",
+                          "house_number": "0.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Aaccf278b-b516-4bf2-a7b2-213f11222829%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Aaccf278b-b516-4bf2-a7b2-213f11222829%5D%2FPOI_Picture2",
+                          "location": "3.0",
+                          "name": "Sacred Heart Primary & Secondary School",
+                          "old_id": "POI000503",
+                          "operator:type": "private",
+                          "street_name": "Bade Wright Street"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.489037,
+                            6.421991
+                          ]
+                        },
+                        "id": "node/2455133530"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133543",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.476417",
+                          "HOUSE_NUMB": "0.0",
+                          "LOCATION_A": "5.0",
+                          "NORTHING": "6.424389",
+                          "POI_ID": "POI000249",
+                          "POI_NAME": "Government Secondary School For The Deaf",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A618f2bf6-b2af-404e-a567-b9b7c949efce%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A618f2bf6-b2af-404e-a567-b9b7c949efce%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Public",
+                          "STREET_NAM": "Ogbunike",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "250.199997",
+                          "fixme": "many bad keys",
+                          "house_number": "0.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A618f2bf6-b2af-404e-a567-b9b7c949efce%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A618f2bf6-b2af-404e-a567-b9b7c949efce%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Government Secondary School For The Deaf",
+                          "old_id": "POI000249",
+                          "operator:type": "public",
+                          "street_name": "Ogbunike"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.476417,
+                            6.424389
+                          ]
+                        },
+                        "id": "node/2455133543"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133547",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.489773",
+                          "HOUSE_NUMB": "0.0",
+                          "LOCATION_A": "5.0",
+                          "NORTHING": "6.424658",
+                          "POI_ID": "POI000169",
+                          "POI_NAME": "International Institute For Entrepreneurship & Development",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Af32e80ac-962e-4a42-a651-b75ec8e31d3d%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Af32e80ac-962e-4a42-a651-b75ec8e31d3d%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Others",
+                          "STREET_NAM": "Zik Avenue",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "233.600006",
+                          "fixme": "many bad keys",
+                          "house_number": "0.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Af32e80ac-962e-4a42-a651-b75ec8e31d3d%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Af32e80ac-962e-4a42-a651-b75ec8e31d3d%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "International Institute For Entrepreneurship & Development",
+                          "old_id": "POI000169",
+                          "operator:type": "Others",
+                          "street_name": "Zik Avenue"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.489773,
+                            6.424658
+                          ]
+                        },
+                        "id": "node/2455133547"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133613",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.479129",
+                          "HOUSE_NUMB": "0.0",
+                          "LOCATION_A": "4.0",
+                          "NORTHING": "6.431292",
+                          "POI_ID": "POI000246",
+                          "POI_NAME": "Ogbete River Primary School",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ad749d8bc-b98f-4e98-b954-b264dcc8ec5f%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ad749d8bc-b98f-4e98-b954-b264dcc8ec5f%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Public",
+                          "STREET_NAM": "Mission Avenue",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "222.100006",
+                          "fixme": "many bad keys",
+                          "house_number": "0.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ad749d8bc-b98f-4e98-b954-b264dcc8ec5f%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ad749d8bc-b98f-4e98-b954-b264dcc8ec5f%5D%2FPOI_Picture2",
+                          "location": "4.0",
+                          "name": "Ogbete River Primary School",
+                          "old_id": "POI000246",
+                          "operator:type": "public",
+                          "street_name": "Mission Avenue"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.479129,
+                            6.431292
+                          ]
+                        },
+                        "id": "node/2455133613"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133618",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.477204",
+                          "HOUSE_NUMB": "0.0",
+                          "LOCATION_A": "5.0",
+                          "NORTHING": "6.431651",
+                          "POI_ID": "POI000241",
+                          "POI_NAME": "City Primary School",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A955f9c49-e11a-4c23-8fd5-ba7a38b3441b%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A955f9c49-e11a-4c23-8fd5-ba7a38b3441b%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Public",
+                          "STREET_NAM": "Ngenevu",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "245.300003",
+                          "fixme": "many bad keys",
+                          "house_number": "0.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A955f9c49-e11a-4c23-8fd5-ba7a38b3441b%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A955f9c49-e11a-4c23-8fd5-ba7a38b3441b%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "City Primary School",
+                          "old_id": "POI000241",
+                          "operator:type": "public",
+                          "street_name": "Ngenevu"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.477204,
+                            6.431651
+                          ]
+                        },
+                        "id": "node/2455133618"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133623",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.484831",
+                          "HOUSE_NUMB": "26.0",
+                          "LOCATION_A": "4.0",
+                          "NORTHING": "6.432405",
+                          "POI_ID": "POI000223",
+                          "POI_NAME": "The Calvary Institute Of Technology",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A7532e64e-692d-4889-9a67-6e68dc4c1d02%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A7532e64e-692d-4889-9a67-6e68dc4c1d02%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Public",
+                          "STREET_NAM": "Dr Enerst Ugo Street",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "214.699997",
+                          "fixme": "many bad keys",
+                          "house_number": "26.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A7532e64e-692d-4889-9a67-6e68dc4c1d02%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A7532e64e-692d-4889-9a67-6e68dc4c1d02%5D%2FPOI_Picture2",
+                          "location": "4.0",
+                          "name": "The Calvary Institute Of Technology",
+                          "old_id": "POI000223",
+                          "operator:type": "public",
+                          "street_name": "Dr Enerst Ugo Street"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.484831,
+                            6.432405
+                          ]
+                        },
+                        "id": "node/2455133623"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133629",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.496924",
+                          "HOUSE_NUMB": "21.0",
+                          "LOCATION_A": "3.0",
+                          "NORTHING": "6.433309",
+                          "POI_ID": "POI000073",
+                          "POI_NAME": "Concil Obiagu Primary School",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ac3e30610-cf54-4efa-9f8f-ef4fe1be357c%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ac3e30610-cf54-4efa-9f8f-ef4fe1be357c%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Public",
+                          "STREET_NAM": "Edinburgh",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "215.699997",
+                          "fixme": "many bad keys",
+                          "house_number": "21.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ac3e30610-cf54-4efa-9f8f-ef4fe1be357c%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Ac3e30610-cf54-4efa-9f8f-ef4fe1be357c%5D%2FPOI_Picture2",
+                          "location": "3.0",
+                          "name": "Concil Obiagu Primary School",
+                          "old_id": "POI000073",
+                          "operator:type": "public",
+                          "street_name": "Edinburgh"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.496924,
+                            6.433309
+                          ]
+                        },
+                        "id": "node/2455133629"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133777",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.497481",
+                          "HOUSE_NUMB": "2.0",
+                          "LOCATION_A": "5.0",
+                          "NORTHING": "6.442223",
+                          "POI_ID": "POI000031",
+                          "POI_NAME": "Grace International School",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A9c742009-b958-41d9-95ea-ec82d7db52d0%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A9c742009-b958-41d9-95ea-ec82d7db52d0%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Private",
+                          "STREET_NAM": "Owerri Road",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "contact:phone": "8036312276",
+                          "ele": "208.600006",
+                          "fixme": "many bad keys",
+                          "house_number": "2.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A9c742009-b958-41d9-95ea-ec82d7db52d0%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A9c742009-b958-41d9-95ea-ec82d7db52d0%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Grace International School",
+                          "old_id": "POI000031",
+                          "operator:type": "private",
+                          "phone": "8036312276",
+                          "street_name": "Owerri Road"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.497481,
+                            6.442223
+                          ]
+                        },
+                        "id": "node/2455133777"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133927",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.513008",
+                          "HOUSE_NUMB": "0.0",
+                          "LOCATION_A": "5.0",
+                          "NORTHING": "6.462466",
+                          "POI_ID": "POI000379",
+                          "POI_NAME": "Naowa Group Of Schools",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A66f0ee1e-0322-4b5c-8b61-d8102540f55d%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A66f0ee1e-0322-4b5c-8b61-d8102540f55d%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "NGO_Owned",
+                          "STREET_NAM": "Abakaliki Road",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "222.300003",
+                          "fixme": "many bad keys",
+                          "house_number": "0.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A66f0ee1e-0322-4b5c-8b61-d8102540f55d%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A66f0ee1e-0322-4b5c-8b61-d8102540f55d%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Naowa Group Of Schools",
+                          "old_id": "POI000379",
+                          "operator:type": "ngo",
+                          "street_name": "Abakaliki Road"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.513008,
+                            6.462466
+                          ]
+                        },
+                        "id": "node/2455133927"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2455133930",
+                          "CATEGORY_1": "Educational Institution",
+                          "EASTING": "7.525955",
+                          "HOUSE_NUMB": "0.0",
+                          "LOCATION_A": "5.0",
+                          "NORTHING": "6.481112",
+                          "POI_ID": "POI000100",
+                          "POI_NAME": "El-Shaddai International Schools",
+                          "POI_PICTUR": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Adda79fa9-0b1f-414f-9de2-62f5c1101bfa%5D%2FPOI_Picture1",
+                          "POI_PICT_1": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Adda79fa9-0b1f-414f-9de2-62f5c1101bfa%5D%2FPOI_Picture2",
+                          "POSTCODE": "400.0",
+                          "SCHOOL_TYP": "Private",
+                          "STREET_NAM": "Upper Housing Estate, Abakpa Nike.",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "ele": "211.199997",
+                          "fixme": "many bad keys",
+                          "house_number": "0.0",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Adda79fa9-0b1f-414f-9de2-62f5c1101bfa%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3Adda79fa9-0b1f-414f-9de2-62f5c1101bfa%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "El-Shaddai International Schools",
+                          "old_id": "POI000100",
+                          "operator:type": "private",
+                          "street_name": "Upper Housing Estate, Abakpa Nike."
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.525955,
+                            6.481112
+                          ]
+                        },
+                        "id": "node/2455133930"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2460130857",
+                          "amenity": "school",
+                          "category": "Educational institution",
+                          "fixme": "many bad keys",
+                          "height": "251.699997",
+                          "house_number": "26.0",
+                          "id": "POI000008",
+                          "image": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A32fd838b-253f-4a78-b803-b397763231ac%5D%2FPOI_Picture1",
+                          "image:url": "https://enugupoi.appspot.com/view/binaryData?blobKey=build_POI-Picture-Form_1374250655%5B%40version%3Dnull+and+%40uiVersion%3Dnull%5D%2Fdata%5B%40key%3Duuid%3A32fd838b-253f-4a78-b803-b397763231ac%5D%2FPOI_Picture2",
+                          "location": "5.0",
+                          "name": "Carmel Nursery & Primary School",
+                          "operator:type": "private",
+                          "street_name": "Nike Avenue"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.504813,
+                            6.467566
+                          ]
+                        },
+                        "id": "node/2460130857"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/2492316934",
+                          "amenity": "school",
+                          "name": "Parkview Montessori School Enugu"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.4940894,
+                            6.4592052
+                          ]
+                        },
+                        "id": "node/2492316934"
+                      },
+                      {
+                        "type": "Feature",
+                        "properties": {
+                          "@id": "node/4440451190",
+                          "addr:street": "Kings Drive Street",
+                          "amenity": "school",
+                          "name": "Konigin Des Fredens College",
+                          "name:en": "Konigin Des Fredens College"
+                        },
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            7.5023965,
+                            6.4134811
+                          ]
+                        },
+                        "id": "node/4440451190"
+                      }
+                    ]
+                  }
+            },
+            "layout": {
+                "icon-image": "icon",
+                "icon-size": 0.05
+            }
+        });
+    });
+});
+var popup = new mapboxgl.Popup({
+                closeOnClick: false
+            })
+            .setLngLat([3, 4])
+            .setHTML('<h2>OpenStreetMap data</h2><p>This shows a list of Schools in a paricular city indicatd with icons</p>')
+            .addTo(map);
+
+map.addControl(new mapboxgl.NavigationControl());
+</script>
+
+</body>
+</html>
