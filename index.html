@@ -21,8 +21,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibmFuYWhhbXphdCIsImEiOiJjamVlem95bzIxYWpkMndvZ
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    zoom: 5,
-    center: [6.51, 7.52]
+    zoom: 10,
+    center: [7.51, 6.4]
 });
 
 map.on('load', function() {
@@ -1112,7 +1112,7 @@ map.on('load', function() {
 var popup = new mapboxgl.Popup({
                 closeOnClick: false
             })
-            .setLngLat([3, 4])
+            .setLngLat([7.3, 6.55])
             .setHTML('<h2>OpenStreetMap data</h2><p>This shows a list of Schools in a paricular city indicatd with icons</p>')
             .addTo(map);
 
